@@ -9,30 +9,35 @@ public class PlayerShoot : MonoBehaviour
     public bool canShoot = true;
     public float shootCooldown = 0.5f;
     public int numberOfProjectiles = 2;
-    public float projectileSeparation = 0.2f;
+    public float projectileSeparation = 0.15f;
 
     public void OnFire()
     {
         if (canShoot)
         {
             StartCoroutine(ShootingCooldown());
-            Vector3 playerPos = transform.position;
+            Vector3 playerPos1 = transform.position;
+            Vector3 playerPos2 = transform.position;
             if (numberOfProjectiles % 2 == 0)
             {
                 for (int i = 0; i < numberOfProjectiles/2; i++)
                 {
-                    GameObject bullet = Instantiate(bulletPrefab, playerPos, Quaternion.identity);
+                    if (i != 0) playerPos1.x += projectileSeparation;
+                    else playerPos1.x += projectileSeparation / 2;
+
+                    GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
-                    playerPos.y += projectileSeparation;
                 }
 
                 for (int i = 0; i < numberOfProjectiles / 2; i++)
                 {
-                    GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    if (i != 0) playerPos2.x -= projectileSeparation;
+                    else playerPos2.x -= projectileSeparation / 2;
+
+                    GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
-                    playerPos.y -= projectileSeparation;
                 }
             }
         }
