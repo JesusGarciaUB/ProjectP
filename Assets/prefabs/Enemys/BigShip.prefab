@@ -157,8 +157,8 @@ MonoBehaviour:
   - {fileID: 0}
   spawn: {fileID: 0}
   end: {fileID: 0}
-  speed: 0.8
-  entrySpeed: 1.2
+  speed: 0.4
+  entrySpeed: 0.6
 --- !u!114 &8810443097823647200
 MonoBehaviour:
   m_ObjectHideFlags: 0
