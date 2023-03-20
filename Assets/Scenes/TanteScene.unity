@@ -262,9 +262,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844487, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
+--- !u!1 &1450588214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8552401612604844487, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
+  m_PrefabInstance: {fileID: 999066685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1450588221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450588214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3aa23744ba91240914e0862f211df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7774456164170282666, guid: dd0ab253fdeeda7449cc62d45868531c, type: 3}
+  bulletForce: 5
+  canShoot: 1
+  shootCooldown: 0.5
