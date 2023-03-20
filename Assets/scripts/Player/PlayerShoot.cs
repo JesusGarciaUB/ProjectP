@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    public enum Direction { UP, LEFT, RIGHT }
+
+
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
     public float shootCooldown = 0.5f;
@@ -12,23 +15,26 @@ public class PlayerShoot : MonoBehaviour
     public float projectileSeparation = 0.15f;
     private float topOffset = 0.15f; //Set bullet position on top of the ship
     private float leftOffset = 0.15f; //Set bullet position on lateral of the ship
+    public Direction dir = Direction.UP;
 
 
-    public void onFireLeft()
+    public void OnFireLeft()
     {
         print("Left");
         Vector3 playerPos1 = transform.position;
         playerPos1.x -= leftOffset;
         Vector3 playerPos2 = playerPos1;
+        dir = Direction.LEFT;
         Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
     }
 
-    public void onFireRight()
+    public void OnFireRight()
     {
         print("Right");
         Vector3 playerPos1 = transform.position;
         playerPos1.x += leftOffset;
         Vector3 playerPos2 = playerPos1;
+        dir = Direction.RIGHT;
         Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
     }
 
@@ -44,20 +50,44 @@ public class PlayerShoot : MonoBehaviour
     {
 
         if (projectileNum % 2 == 0)
-        {
-            ParShooting(playerPos1, playerPos2, projectileNum);
+        { 
+            switch (dir)
+            {
+                case Direction.UP:
+                    ParShootingUp(playerPos1, playerPos2, projectileNum);
+                    break;
+                case Direction.LEFT:
+                    ParShootingLeft(playerPos1, playerPos2, projectileNum);
+                    break;
+                case Direction.RIGHT:
+                    ParShootingRight(playerPos1, playerPos2, projectileNum);
+                    break;
+            }
         }
         else
         {
             GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
 
-            ParShooting(playerPos1, playerPos2, projectileNum - 1);
+            switch (dir)
+            {
+                case Direction.UP:
+                    rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+                    ParShootingUp(playerPos1, playerPos2, projectileNum - 1);
+                    break;
+                case Direction.LEFT:
+                    rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
+                    ParShootingLeft(playerPos1, playerPos2, projectileNum - 1);
+                    break;
+                case Direction.RIGHT:
+                    rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
+                    ParShootingRight(playerPos1, playerPos2, projectileNum - 1);
+                    break;
+            }
         }
     }
 
-    private void ParShooting(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
+    private void ParShootingUp(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
     {
         for (int i = 0; i < projectilNum / 2; i++)
         {
@@ -77,6 +107,52 @@ public class PlayerShoot : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void ParShootingLeft(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
+    {
+        for (int i = 0; i < projectilNum / 2; i++)
+        {
+            if (i != 0) playerPos1.y += projectileSeparation;
+            else playerPos1.y += projectileSeparation / 2;
+
+            GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
+        }
+
+        for (int i = 0; i < projectilNum / 2; i++)
+        {
+            if (i != 0) playerPos2.y -= projectileSeparation;
+            else playerPos2.y -= projectileSeparation / 2;
+
+            GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void ParShootingRight(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
+    {
+        for (int i = 0; i < projectilNum / 2; i++)
+        {
+            if (i != 0) playerPos1.y += projectileSeparation;
+            else playerPos1.y += projectileSeparation / 2;
+
+            GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
+        }
+
+        for (int i = 0; i < projectilNum / 2; i++)
+        {
+            if (i != 0) playerPos2.y -= projectileSeparation;
+            else playerPos2.y -= projectileSeparation / 2;
+
+            GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
         }
     }
 
