@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1112952804766684377}
   - component: {fileID: 1112952804766684376}
   - component: {fileID: 8810443097823647200}
+  - component: {fileID: 827192735}
   m_Layer: 0
   m_Name: BigShip
   m_TagString: Ship
@@ -156,8 +157,8 @@ MonoBehaviour:
   - {fileID: 0}
   spawn: {fileID: 0}
   end: {fileID: 0}
-  speed: 0.8
-  entrySpeed: 1.2
+  speed: 0.4
+  entrySpeed: 0.6
 --- !u!114 &8810443097823647200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +172,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetArc: 0.03
-  bullet: {fileID: 0}
-  Cooldown: 0
+  cannons:
+  - {fileID: 7385596137576308715}
+  - {fileID: 8698669646144320275}
+  - {fileID: 5142168095687320269}
+  bullet: {fileID: 7212558433531317814, guid: 3cf7c9b4cc9c10842ba08a51da4785a5, type: 3}
+  Cooldown: 3
+--- !u!114 &827192735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112952804766684375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f943eef038b5c3646a46d815fb09a4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damage: 0
 --- !u!1001 &5590367717288240247
 PrefabInstance:
   m_ObjectHideFlags: 0

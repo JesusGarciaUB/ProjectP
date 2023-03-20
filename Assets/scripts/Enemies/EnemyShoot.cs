@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShoot :  MonoBehaviour
 {
     public float offsetArc;
-    private List<Transform> cannons;
+    public List<Transform> cannons;
     public GameObject bullet;
     public float Cooldown;
     private bool CanShoot;
@@ -15,17 +15,23 @@ public class EnemyShoot :  MonoBehaviour
     private int damage;
     private void Start()
     {
+        InRange = false;
         damage = GetComponent<Damageable>().Damage;
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GlobalVariables.Instance.player;
         CanShoot = true;
-        float height = GetComponent<SpriteRenderer>().size.y / 2;
+        float height = transform.localScale.y / 2;
         ShootArc = height + offsetArc;
+        print(ShootArc);
+    }
+
+    private void Update()
+    {
+        if (transform.position.y + ShootArc > player.transform.position.y && transform.position.y - ShootArc < player.transform.position.y) InRange = true;
+        else InRange = false;
+        print(InRange);
     }
     private void FixedUpdate()
     {
-        if (transform.position.y + ShootArc < player.transform.position.y && transform.position.y - ShootArc > player.transform.position.y) InRange = true;
-        else InRange = false;
-
         if (InRange && CanShoot)
         {
             Shoot();
