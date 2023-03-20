@@ -9,6 +9,7 @@ public class EnemyShoot :  MonoBehaviour
     public GameObject bullet;
     public float Cooldown;
     private bool CanShoot;
+    private bool InRange;
     private float ShootArc;
     private GameObject player;
     private int damage;
@@ -22,10 +23,10 @@ public class EnemyShoot :  MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (transform.position.y + ShootArc < player.transform.position.y && transform.position.y - ShootArc > player.transform.position.y) CanShoot = true;
-        else CanShoot = false;
+        if (transform.position.y + ShootArc < player.transform.position.y && transform.position.y - ShootArc > player.transform.position.y) InRange = true;
+        else InRange = false;
 
-        if (CanShoot)
+        if (InRange && CanShoot)
         {
             Shoot();
             StartCoroutine(StartCooldown());
