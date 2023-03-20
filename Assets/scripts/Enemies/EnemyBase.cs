@@ -6,12 +6,18 @@ public class EnemyBase : MonoBehaviour
 {
     //routing
     public List<Transform> routing;
-    public Transform spawn;
-    public Transform end;
     private int currentTarget;
     public float speed;
-    public float entrySpeed;
 
+    public List<Transform> SetRoute
+    {
+        set { routing = value; }
+    }
+
+    public Transform SetOnePoint
+    {
+        set { routing.Add(value); }
+    }
     public int GetState
     {
         get { return currentTarget; }
@@ -19,14 +25,12 @@ public class EnemyBase : MonoBehaviour
     private void Start()
     {
         currentTarget = 0;
-        transform.position = spawn.position;
     }
     private void FixedUpdate()
     {
         //movement
-        if (currentTarget == 0) transform.position = Vector3.MoveTowards(transform.position, routing[currentTarget].position, entrySpeed * Time.deltaTime); 
-        else if (currentTarget < routing.Count) transform.position = Vector3.MoveTowards(transform.position, routing[currentTarget].position, speed * Time.deltaTime);
-        else transform.position = Vector3.MoveTowards(transform.position, end.position, speed * Time.deltaTime);
+        if (currentTarget < routing.Count) transform.position = Vector3.MoveTowards(transform.position, routing[currentTarget].position, speed * Time.deltaTime);
+        else Destroy(gameObject);
 
         //routing changer
         if (currentTarget < routing.Count)
