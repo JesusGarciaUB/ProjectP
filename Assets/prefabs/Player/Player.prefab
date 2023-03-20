@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7774456164170282666, guid: dd0ab253fdeeda7449cc62d45868531c, type: 3}
   bulletForce: 2.5
-  canShoot: 1
+  canShoot: 0
   shootCooldown: 0
   numberOfProjectiles: 2
   projectileSeparation: 0.06
