@@ -24,5 +24,6 @@ public class Bullet : MonoBehaviour
         Vector3 playerPos = GlobalVariables.Instance.player.transform.position;
         Vector3 dir = playerPos - parent;
         rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
+        Destroy(gameObject, timeOnScreen);
     }
 }

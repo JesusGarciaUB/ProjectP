@@ -12,6 +12,10 @@ public class EnemyBase : MonoBehaviour
     public float speed;
     public float entrySpeed;
 
+    public int GetState
+    {
+        get { return currentTarget; }
+    }
     private void Start()
     {
         currentTarget = 0;

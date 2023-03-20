@@ -4,35 +4,23 @@ using UnityEngine;
 
 public class EnemyShoot :  MonoBehaviour
 {
-    public float offsetArc;
     public List<Transform> cannons;
     public GameObject bullet;
     public float Cooldown;
     private bool CanShoot;
-    private bool InRange;
-    private float ShootArc;
-    private GameObject player;
     private int damage;
+    private bool entered;
     private void Start()
     {
-        InRange = false;
+        entered = false;
         damage = GetComponent<Damageable>().Damage;
-        player = GlobalVariables.Instance.player;
         CanShoot = true;
-        float height = transform.localScale.y / 2;
-        ShootArc = height + offsetArc;
-        print(ShootArc);
     }
 
-    private void Update()
-    {
-        if (transform.position.y + ShootArc > player.transform.position.y && transform.position.y - ShootArc < player.transform.position.y) InRange = true;
-        else InRange = false;
-        print(InRange);
-    }
     private void FixedUpdate()
     {
-        if (InRange && CanShoot)
+        if (GetComponent<EnemyBase>().GetState != 0) entered = true;
+        if (CanShoot && entered)
         {
             Shoot();
             StartCoroutine(StartCooldown());
