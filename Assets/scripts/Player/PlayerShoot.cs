@@ -15,7 +15,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (canShoot)
         {
-            StartCoroutine(ShootingCooldown());
+            //StartCoroutine(ShootingCooldown());
             Vector3 playerPos1 = transform.position;
             Vector3 playerPos2 = transform.position;
             if (numberOfProjectiles % 2 == 0)
