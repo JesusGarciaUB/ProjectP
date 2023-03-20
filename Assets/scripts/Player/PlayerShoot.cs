@@ -11,6 +11,11 @@ public class PlayerShoot : MonoBehaviour
     public int numberOfProjectiles = 2;
     public float projectileSeparation = 0.15f;
 
+    private void FixedUpdate()
+    {
+        
+    }
+
     public void OnFire()
     {
         if (canShoot)
