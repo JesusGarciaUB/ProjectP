@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //routing
+    public List<Transform> routing;
+    public Transform spawn;
+    public Transform end;
+    private int currentTarget;
+    public float speed;
+    public float entrySpeed;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        currentTarget = 0;
+        transform.position = spawn.position;
+    }
+    private void FixedUpdate()
+    {
+        //movement
+        if (currentTarget == 0) transform.position = Vector3.MoveTowards(transform.position, routing[currentTarget].position, entrySpeed * Time.deltaTime); 
+        else if (currentTarget < routing.Count) transform.position = Vector3.MoveTowards(transform.position, routing[currentTarget].position, speed * Time.deltaTime);
+        else transform.position = Vector3.MoveTowards(transform.position, end.position, speed * Time.deltaTime);
+
+        //routing changer
+        if (currentTarget < routing.Count)
+        if (transform.position == routing[currentTarget].position) currentTarget++;
     }
 }
