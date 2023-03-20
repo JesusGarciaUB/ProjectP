@@ -20,10 +20,22 @@ public class Bullet : MonoBehaviour
     }
     private void Start()
     {
+        Destroy(gameObject, timeOnScreen);
+    }
+
+    public void ShootLateral()
+    {
         rb = GetComponent<Rigidbody2D>();
         Vector3 playerPos = GlobalVariables.Instance.player.transform.position;
         Vector3 dir = playerPos - parent;
         rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
-        Destroy(gameObject, timeOnScreen);
+    }
+
+    public void ShootFrontal()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        Vector3 auxDir = new Vector3(parent.x + Random.Range(-0.3f, 0.3f), parent.y - 1f);
+        Vector3 dir = auxDir - parent;
+        rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
     }
 }

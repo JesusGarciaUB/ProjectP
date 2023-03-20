@@ -33,6 +33,7 @@ public class EnemyShoot :  MonoBehaviour
             GameObject aux = Instantiate(bullet, cannons[x].transform.position, Quaternion.identity);
             aux.GetComponent<Bullet>().GiveSelf = transform.position;
             aux.GetComponent<Bullet>().GiveDamage = damage;
+            aux.GetComponent<Bullet>().ShootLateral();
         }
     }
     private IEnumerator StartCooldown()
