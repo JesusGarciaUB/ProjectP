@@ -214,32 +214,8 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1450588221, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: bulletForce
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450588221, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: shootCooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1450588221, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: projectileSeparation
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844480, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8552401612604844481, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844481, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844481, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8552401612604844481, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
@@ -282,34 +258,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_Size.x
-      value: 0.18993616
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.32625782
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.006553918
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0013108253
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844483, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8552401612604844486, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6c82444e665f85e49a1691f8b2a043f1, type: 3}
     - target: {fileID: 8552401612604844487, guid: 4f5d6fd06435ee5469ad4ee0116c0c8c, type: 3}
       propertyPath: m_Name
       value: Player
