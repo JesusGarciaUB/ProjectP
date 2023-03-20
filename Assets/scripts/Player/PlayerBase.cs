@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerBase : MonoBehaviour
+public class PlayerBase : Damageable
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 1f;
+
+    private Rigidbody2D rb;
+    private Vector2 movementInput;
+
+    private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        rb.velocity = movementInput * speed;
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        movementInput = inputValue.Get<Vector2>(); 
     }
 }
