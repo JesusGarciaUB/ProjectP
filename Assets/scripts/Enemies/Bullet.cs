@@ -20,7 +20,8 @@ public class Bullet : MonoBehaviour
     }
     private void Start()
     {
-        Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        rb = GetComponent<Rigidbody2D>();
+        Vector3 playerPos = GlobalVariables.Instance.player.transform.position;
         Vector3 dir = playerPos - parent;
         rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
     }
