@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8552401612604844483}
   - component: {fileID: 8552401612604844480}
   - component: {fileID: 8552401612604844493}
+  - component: {fileID: 1450588221}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8552401612604844487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0625599, y: -0.5257, z: 0}
-  m_LocalScale: {x: 0.32, y: 0.615672, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c82444e665f85e49a1691f8b2a043f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.006553918, y: -0.0013108253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.24, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.18993616, y: 0.32625782}
   m_EdgeRadius: 0
 --- !u!114 &8552401612604844480
 MonoBehaviour:
@@ -147,7 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b49d86d024103984b8ab2f49415aa05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  health: 0
+  damage: 0
+  speed: 1
 --- !u!114 &8552401612604844493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +181,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1450588221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552401612604844487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3aa23744ba91240914e0862f211df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7774456164170282666, guid: dd0ab253fdeeda7449cc62d45868531c, type: 3}
+  bulletForce: 2.5
+  canShoot: 1
+  shootCooldown: 0
+  numberOfProjectiles: 2
+  projectileSeparation: 0.06
