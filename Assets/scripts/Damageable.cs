@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    private int health;
-    private int damage;
+
+    [SerializeField] private int health;
+    [SerializeField] private int damage;
     
     public int Health { 
         get { return health; } 
