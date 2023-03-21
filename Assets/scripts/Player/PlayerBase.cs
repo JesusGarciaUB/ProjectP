@@ -10,18 +10,18 @@ public class PlayerBase : Damageable
 
     private Rigidbody2D rb;
     private Vector2 movementInput;
-    private BoxCollider2D boxC2d;
     private SpriteRenderer spriteRenderer;
     private Color og;
     private Color oga;
     private Animator anim;
     private bool canMove;
+    public bool canHit;
     private void Awake()
     {
+        canHit = true;
         canMove = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        boxC2d = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         og = spriteRenderer.color;
         oga = og;
@@ -59,10 +59,10 @@ public class PlayerBase : Damageable
     private IEnumerator InvulnerabilityCooldown()
     {
         print("c merman");
-        boxC2d.enabled = false;
+        canHit = false;
 
         yield return new WaitForSeconds(invulnerabilityTime);
-        boxC2d.enabled = true;
+        canHit = true;
     }
 
     private IEnumerator BlinckSprite()

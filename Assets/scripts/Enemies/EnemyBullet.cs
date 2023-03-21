@@ -6,10 +6,13 @@ public class EnemyBullet : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") { 
-            collision.GetComponent<Damageable>().Health = GetComponent<Bullet>().damage;
-            if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
-            Destroy(gameObject);
+        if (collision.gameObject.tag == "Player") {
+            if (collision.GetComponent<PlayerBase>().canHit)
+            {
+                collision.GetComponent<Damageable>().Health = GetComponent<Bullet>().damage;
+                if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
+                Destroy(gameObject);
+            }
         }
     }
 }
