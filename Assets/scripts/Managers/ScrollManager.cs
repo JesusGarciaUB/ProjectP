@@ -18,15 +18,21 @@ public class ScrollManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (canSpawn && loops < numberOfLoops) {
-            loops++;
-            Instantiate(maps[Random.Range(0, maps.Count)], spawner.position, Quaternion.identity);
-            StartCoroutine(Spawn());
-        }
-        if (canSpawn && loops == numberOfLoops)
+        if (GlobalVariables.Instance.canScroll)
         {
-            loops++;
-            Instantiate(portmap, spawner.position, Quaternion.identity);
+            if (canSpawn && loops < numberOfLoops)
+            {
+                loops++;
+                Instantiate(maps[Random.Range(0, maps.Count)], spawner.position, Quaternion.identity);
+                StartCoroutine(Spawn());
+            }
+            if (canSpawn && loops == numberOfLoops)
+            {
+                loops++;
+                Instantiate(portmap, spawner.position, Quaternion.identity);
+                StartCoroutine(Spawn());
+            }
+            if (canSpawn && loops > numberOfLoops) { }
         }
     }
 
