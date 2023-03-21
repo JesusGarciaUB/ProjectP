@@ -17,33 +17,51 @@ public class PlayerShoot : MonoBehaviour
     public float topOffset = 0.2f; //Set bullet position on top of the ship
     public float leftOffset = 0.15f; //Set bullet position on lateral of the ship
     public Direction dir = Direction.UP;
+    private bool CanShoot;
 
+    private void Awake()
+    {
+        CanShoot = true;
+    }
+
+    private void LockShoot() {
+        CanShoot = false;
+    }
 
     public void OnFireLeft()
     {
-        Vector3 playerPos1 = transform.position;
-        playerPos1.x -= leftOffset;
-        Vector3 playerPos2 = playerPos1;
-        dir = Direction.LEFT;
-        Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
+        if (CanShoot)
+        {
+            Vector3 playerPos1 = transform.position;
+            playerPos1.x -= leftOffset;
+            Vector3 playerPos2 = playerPos1;
+            dir = Direction.LEFT;
+            Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
+        }
     }
 
     public void OnFireRight()
     {
-        Vector3 playerPos1 = transform.position;
-        playerPos1.x += leftOffset;
-        Vector3 playerPos2 = playerPos1;
-        dir = Direction.RIGHT;
-        Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
+        if (CanShoot)
+        {
+            Vector3 playerPos1 = transform.position;
+            playerPos1.x += leftOffset;
+            Vector3 playerPos2 = playerPos1;
+            dir = Direction.RIGHT;
+            Shoot(playerPos1, playerPos2, numberOfLateralProjectiles);
+        }
     }
 
     public void OnFire()
     {
-        Vector3 playerPos1 = transform.position;
-        playerPos1.y += topOffset;
-        Vector3 playerPos2 = playerPos1;
-        dir = Direction.UP;
-        Shoot(playerPos1, playerPos2, numberOfFrontalProjectiles);
+        if (CanShoot)
+        {
+            Vector3 playerPos1 = transform.position;
+            playerPos1.y += topOffset;
+            Vector3 playerPos2 = playerPos1;
+            dir = Direction.UP;
+            Shoot(playerPos1, playerPos2, numberOfFrontalProjectiles);
+        }
     }
 
     private void Shoot(Vector3 playerPos1, Vector3 playerPos2,int projectileNum)

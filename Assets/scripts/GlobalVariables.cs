@@ -6,14 +6,21 @@ public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables Instance { get; private set; }
     public GameObject player;
+    public int score;
 
     private void Awake()
     {
+        score = 0;
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }
+
+    public void ResetScore()
+    {
+        score = 0;
     }
 }
