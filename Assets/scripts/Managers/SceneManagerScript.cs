@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour
+public class SceneManagerScript : MonoBehaviour
 {
     public List<Transform> leftPath;
     public List<Transform> rightPath;

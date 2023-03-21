@@ -14,7 +14,7 @@ public class PlayerBase : Damageable
     private Color og;
     private Color oga;
     private Animator anim;
-    private bool canMove;
+    public bool canMove;
     public bool canHit;
     private void Awake()
     {
@@ -49,6 +49,11 @@ public class PlayerBase : Damageable
     private void DestroyShip()
     {
         Destroy(gameObject);
+    }
+
+    public void Low()
+    {
+        anim.SetTrigger("low");
     }
     public override void OnHpLoss()
     {
