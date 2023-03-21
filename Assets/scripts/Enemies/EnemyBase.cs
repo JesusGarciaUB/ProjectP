@@ -8,6 +8,7 @@ public class EnemyBase : MonoBehaviour
     public List<Transform> routing;
     private int currentTarget;
     public float speed;
+    private SpriteRenderer sr;
 
     public List<Transform> SetRoute
     {
@@ -24,6 +25,8 @@ public class EnemyBase : MonoBehaviour
     }
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
+        sr.color = GlobalVariables.Instance.ogColor;
         currentTarget = 0;
     }
     private void FixedUpdate()
