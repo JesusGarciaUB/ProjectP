@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 270465252}
   - component: {fileID: 270465254}
   - component: {fileID: 270465253}
+  - component: {fileID: 270465255}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -201,6 +202,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270465251}
   m_CullTransparentMesh: 1
+--- !u!114 &270465255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270465251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9639284f919c96f49bbfe0ed3b43141f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &644134610
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,10 +249,10 @@ RectTransform:
   m_Father: {fileID: 270465252}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6566162, y: 0.12315263}
-  m_AnchorMax: {x: 0.9385758, y: 0.2344102}
-  m_AnchoredPosition: {x: -60.60786, y: 5.819206}
-  m_SizeDelta: {x: 147.02759, y: 38.539757}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.446}
+  m_AnchoredPosition: {x: -0.10786438, y: 0.81920624}
+  m_SizeDelta: {x: 0.02758789, y: 0.5397568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644134612
 MonoBehaviour:
@@ -284,7 +297,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 644134613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 270465251}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &644134613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,10 +915,10 @@ RectTransform:
   m_Father: {fileID: 270465252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6566162, y: 0.2486407}
-  m_AnchorMax: {x: 0.9385758, y: 0.31723058}
-  m_AnchoredPosition: {x: -60.60786, y: 54.47887}
-  m_SizeDelta: {x: 147.02759, y: 43.434708}
+  m_AnchorMin: {x: 0, y: 0.545}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.10786438, y: -0.021129608}
+  m_SizeDelta: {x: 0.02758789, y: 0.43470764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1396185583
 MonoBehaviour:
@@ -939,9 +964,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 3b1def315bb0aea4492c815ffcb8ce9e, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 270465255}
+        m_TargetAssemblyTypeName: MenuPrincipal, Assembly-CSharp
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
