@@ -8,7 +8,7 @@ public class GlobalVariables : MonoBehaviour
     public GameObject player;
     public int score;
     public Camera mainCamera;
-
+    public Color ogColor;
     private void Awake()
     {
         score = 0;

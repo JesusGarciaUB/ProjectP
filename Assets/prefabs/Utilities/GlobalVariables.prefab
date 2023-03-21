@@ -47,3 +47,4 @@ MonoBehaviour:
   player: {fileID: 0}
   score: 0
   mainCamera: {fileID: 0}
+  ogColor: {r: 1, g: 1, b: 1, a: 1}
