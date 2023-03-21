@@ -57,7 +57,6 @@ public class SceneManagerScript : MonoBehaviour
                 StartCoroutine(StartCooldown());
             }
         }
-
     }
 
     private void SpawnMine()
