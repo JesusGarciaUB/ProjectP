@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float timeOnScreen;
-    private int damage;
+    public int damage;
     public float speed;
     private Vector3 parent;
     private Rigidbody2D rb;

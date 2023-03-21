@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7701081858563485418}
   - component: {fileID: 7701081858563485417}
   - component: {fileID: 7701081858563485416}
-  - component: {fileID: 7701081858563485431}
   - component: {fileID: 7701081858563485421}
   - component: {fileID: -2805584602700642968}
+  - component: {fileID: 460922422882344378}
   m_Layer: 0
   m_Name: Goleta
   m_TagString: Untagged
@@ -151,20 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   routing: []
   speed: 0.4
---- !u!114 &7701081858563485431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7701081858563485430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f943eef038b5c3646a46d815fb09a4f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
 --- !u!114 &7701081858563485421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,3 +185,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &460922422882344378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7701081858563485430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c6c50866ebd0242990a7585c738d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  damage: 1

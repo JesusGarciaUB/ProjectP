@@ -12,12 +12,16 @@ public class PlayerBase : Damageable
     private Vector2 movementInput;
     private BoxCollider2D boxC2d;
     private SpriteRenderer spriteRenderer;
-
+    private Color og;
+    private Color oga;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         boxC2d = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        og = spriteRenderer.color;
+        oga = og;
+        oga.a = 0.5f;
     }
 
     private void FixedUpdate()
@@ -32,8 +36,8 @@ public class PlayerBase : Damageable
 
     public override void OnHpLoss()
     {
-        BlinckSprite();
-        InvulnerabilityCooldown();
+        StartCoroutine(BlinckSprite());
+        StartCoroutine(InvulnerabilityCooldown());
     }
 
     private IEnumerator InvulnerabilityCooldown()
@@ -49,9 +53,9 @@ public class PlayerBase : Damageable
     {
         for (int i = 0; i < 5; i++)
         {
-            spriteRenderer.color = new Color(0, 0, 0, 0);
+            spriteRenderer.color = oga;
             yield return new WaitForSeconds(0.1f);
-            spriteRenderer.color = new Color(0, 0, 0, 1);
+            spriteRenderer.color = og;
             yield return new WaitForSeconds(0.1f);
         }
     }
