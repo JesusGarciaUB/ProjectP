@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeOnScreen: 4
   damage: 0
-  speed: 1
+  speed: 0.8
 --- !u!114 &7868268648530764865
 MonoBehaviour:
   m_ObjectHideFlags: 0

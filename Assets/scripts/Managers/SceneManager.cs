@@ -22,7 +22,7 @@ public class SceneManager : MonoBehaviour
     {
         if(canSpawn)
         {
-            switch(Random.Range(0, 6))
+            switch(Random.Range(0, 4))
             {
                 case 0:
                     SpawnFrag();

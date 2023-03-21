@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9242cdb35dafc245a6c4d92c328c5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 1
+  Cooldown: 0.7
   bullet: {fileID: 1980483365300090684, guid: 4fb27ffcad65ee642af0ed86df0d7f57, type: 3}
 --- !u!95 &-2805584602700642968
 Animator:
