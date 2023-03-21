@@ -26,6 +26,7 @@ public class GlobalVariables : MonoBehaviour
 
     private void Awake()
     {
+        canScroll = true;
         currentLevel = 0;
         score = 0;
         if (Instance == null)
