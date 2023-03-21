@@ -5,7 +5,9 @@ using UnityEngine;
 public class CinematicPlayer : MonoBehaviour
 {
     private PlayerBase self;
-    private Vector3 parkingPosition = new Vector3(-0.379f, 0, 0);
+    private Vector3 parkingPosition;
+    private Vector3 middleMap;
+    private PlayerShoot selfShoot;
     //parking
     public bool Parking = false;
     private bool DoingParking = false;
@@ -15,7 +17,10 @@ public class CinematicPlayer : MonoBehaviour
 
     private void Awake()
     {
-        self = GetComponent<PlayerBase>();
+        middleMap = new Vector3(0, 0, 0);
+        parkingPosition = new Vector3(-0.379f, 0, 0);
+        selfShoot = gameObject.GetComponent<PlayerShoot>();
+        self = gameObject.GetComponent<PlayerBase>();
         LeavingPort = true;
     }
     private void Update()
@@ -33,6 +38,7 @@ public class CinematicPlayer : MonoBehaviour
         DoingParking = true;
         self.canHit = false;
         self.canMove = false;
+        selfShoot.CanShoot = false;
     }
 
     private void DoingPark()
@@ -50,15 +56,17 @@ public class CinematicPlayer : MonoBehaviour
         DoingLeavingPort = true;
         self.canHit = false;
         self.canMove = false;
+        selfShoot.CanShoot = false;
     }
 
     private void DoingLeavePort()
     {
-        Vector3.Lerp(transform.position, new Vector3(0, 0, 0), self.speed * Time.deltaTime);
-        if (transform.position == new Vector3(0,0,0)) {
+        Vector3.Lerp(transform.position, middleMap, self.speed * Time.deltaTime);
+        if (transform.position == middleMap) {
             DoingLeavingPort = false;
             self.canHit = true;
             self.canMove = true;
+            selfShoot.CanShoot = true;
         }
     }
 }

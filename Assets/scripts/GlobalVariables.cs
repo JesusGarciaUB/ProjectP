@@ -6,6 +6,7 @@ public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables Instance { get; private set; }
     public GameObject player;
+    public GameObject playerCinematic;
     public int score;
     public Camera mainCamera;
     public Color ogColor;

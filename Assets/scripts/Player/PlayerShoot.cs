@@ -17,18 +17,12 @@ public class PlayerShoot : MonoBehaviour
     public float topOffset = 0.2f; //Set bullet position on top of the ship
     public float leftOffset = 0.15f; //Set bullet position on lateral of the ship
     public Direction dir = Direction.UP;
-    private bool CanShoot;
-    private Rigidbody2D playerRb;
+    public bool CanShoot;
     public float knockbackOnShoot = 0.01f;
 
     private void Awake()
     {
         CanShoot = true;
-    }
-
-    private void Start()
-    {
-       playerRb = GetComponent<Rigidbody2D>();
     }
 
     private void LockShoot() {
