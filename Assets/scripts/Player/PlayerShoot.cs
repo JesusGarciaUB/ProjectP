@@ -13,14 +13,13 @@ public class PlayerShoot : MonoBehaviour
     public int numberOfFrontalProjectiles = 2;
     public int numberOfLateralProjectiles = 3;
     public float projectileSeparation = 0.15f;
-    private float topOffset = 0.15f; //Set bullet position on top of the ship
+    private float topOffset = 0.2f; //Set bullet position on top of the ship
     private float leftOffset = 0.15f; //Set bullet position on lateral of the ship
     public Direction dir = Direction.UP;
 
 
     public void OnFireLeft()
     {
-        print("Left");
         Vector3 playerPos1 = transform.position;
         playerPos1.x -= leftOffset;
         Vector3 playerPos2 = playerPos1;
@@ -30,7 +29,6 @@ public class PlayerShoot : MonoBehaviour
 
     public void OnFireRight()
     {
-        print("Right");
         Vector3 playerPos1 = transform.position;
         playerPos1.x += leftOffset;
         Vector3 playerPos2 = playerPos1;
