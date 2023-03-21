@@ -171,7 +171,7 @@ MonoBehaviour:
   - {fileID: 7545434366392343452}
   - {fileID: 445829947957549531}
   bullet: {fileID: 1980483365300090684, guid: 4fb27ffcad65ee642af0ed86df0d7f57, type: 3}
-  Cooldown: 1.5
+  Cooldown: 2
 --- !u!95 &-2295093218486912380
 Animator:
   serializedVersion: 4

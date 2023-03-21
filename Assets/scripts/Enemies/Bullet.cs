@@ -23,10 +23,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, timeOnScreen);
     }
 
-    public void ShootLateral()
+    public void ShootLateral(float dispersion)
     {
         rb = GetComponent<Rigidbody2D>();
         Vector3 playerPos = GlobalVariables.Instance.player.transform.position;
+        playerPos.y += dispersion;
         Vector3 dir = playerPos - parent;
         rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
     }
