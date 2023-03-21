@@ -11,6 +11,7 @@ public class EnemyBullet : MonoBehaviour
             {
                 collision.GetComponent<Damageable>().Health = GetComponent<Bullet>().damage;
                 if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
+                if (collision.GetComponent<Damageable>().Health < 6) collision.GetComponent<PlayerBase>().Low();
                 Destroy(gameObject);
             }
         }
