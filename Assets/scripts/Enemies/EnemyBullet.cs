@@ -8,8 +8,8 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player") { 
             collision.GetComponent<Damageable>().Health = GetComponent<Bullet>().damage;
-            if (collision.GetComponent<Damageable>().Health <= 0) Destroy(collision.gameObject); 
-            Destroy(gameObject); 
+            if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
+            Destroy(gameObject);
         }
     }
 }

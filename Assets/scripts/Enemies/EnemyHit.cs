@@ -8,9 +8,11 @@ public class EnemyHit : Damageable
     private bool ticking;
     private Color og;
     private Color oga;
+    private Animator anim;
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         og = GetComponent<SpriteRenderer>().color;
         oga = og;
         oga.a = 0.5f;
@@ -20,12 +22,25 @@ public class EnemyHit : Damageable
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            damageReceived = GlobalVariables.Instance.player.GetComponent<Damageable>().Damage;
-            Health = damageReceived;
-            if (Health <= 0) Destroy(gameObject);
+            if (Health > 0)
+            {
+                Destroy(collision.gameObject);
+                damageReceived = GlobalVariables.Instance.player.GetComponent<Damageable>().Damage;
+                Health = damageReceived;
+                if (Health <= 0) Death();
+            }
         }
     }
 
+    private void Death()
+    {
+        anim.SetTrigger("die");
+    }
+
+    private void DestroyShip()
+    {
+        Destroy(gameObject);
+    }
     public override void OnHpLoss()
     {
         if (!ticking) StartCoroutine(tick());

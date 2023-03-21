@@ -14,8 +14,12 @@ public class PlayerBase : Damageable
     private SpriteRenderer spriteRenderer;
     private Color og;
     private Color oga;
+    private Animator anim;
+    private bool canMove;
     private void Awake()
     {
+        canMove = true;
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxC2d = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -26,14 +30,26 @@ public class PlayerBase : Damageable
 
     private void FixedUpdate()
     {
-        rb.velocity = movementInput * speed;
+        if (canMove) rb.velocity = movementInput * speed;
     }
 
     private void OnMove(InputValue inputValue)
     {
-        movementInput = inputValue.Get<Vector2>(); 
+        if(canMove) movementInput = inputValue.Get<Vector2>(); 
     }
 
+    private void LockMovement()
+    {
+        canMove = false;
+    }
+    public void Death()
+    {
+        anim.SetTrigger("die");
+    }
+    private void DestroyShip()
+    {
+        Destroy(gameObject);
+    }
     public override void OnHpLoss()
     {
         StartCoroutine(BlinckSprite());

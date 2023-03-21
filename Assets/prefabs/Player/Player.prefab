@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3aa23744ba91240914e0862f211df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7774456164170282666, guid: dd0ab253fdeeda7449cc62d45868531c, type: 3}
+  bulletPrefab: {fileID: 7425068067070483246, guid: 1bb51f99cc55a5b498bee3f12051f041, type: 3}
   bulletForce: 1
   shootCooldown: 0
   numberOfFrontalProjectiles: 2
