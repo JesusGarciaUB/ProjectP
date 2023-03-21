@@ -13,8 +13,9 @@ public class PlayerShoot : MonoBehaviour
     public int numberOfFrontalProjectiles = 2;
     public int numberOfLateralProjectiles = 3;
     public float projectileSeparation = 0.15f;
-    private float topOffset = 0.2f; //Set bullet position on top of the ship
-    private float leftOffset = 0.15f; //Set bullet position on lateral of the ship
+    public float projectileLateralSeparation = 0.2f;
+    public float topOffset = 0.2f; //Set bullet position on top of the ship
+    public float leftOffset = 0.15f; //Set bullet position on lateral of the ship
     public Direction dir = Direction.UP;
 
 
@@ -113,8 +114,8 @@ public class PlayerShoot : MonoBehaviour
     {
         for (int i = 0; i < projectilNum / 2; i++)
         {
-            if (i != 0) playerPos1.y += projectileSeparation;
-            else playerPos1.y += projectileSeparation / 2;
+            if (i != 0) playerPos1.y += projectileLateralSeparation;
+            else playerPos1.y += projectileLateralSeparation / 2;
 
             GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -123,8 +124,8 @@ public class PlayerShoot : MonoBehaviour
 
         for (int i = 0; i < projectilNum / 2; i++)
         {
-            if (i != 0) playerPos2.y -= projectileSeparation;
-            else playerPos2.y -= projectileSeparation / 2;
+            if (i != 0) playerPos2.y -= projectileLateralSeparation;
+            else playerPos2.y -= projectileLateralSeparation / 2;
 
             GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -136,8 +137,8 @@ public class PlayerShoot : MonoBehaviour
     {
         for (int i = 0; i < projectilNum / 2; i++)
         {
-            if (i != 0) playerPos1.y += projectileSeparation;
-            else playerPos1.y += projectileSeparation / 2;
+            if (i != 0) playerPos1.y += projectileLateralSeparation;
+            else playerPos1.y += projectileLateralSeparation / 2;
 
             GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -146,8 +147,8 @@ public class PlayerShoot : MonoBehaviour
 
         for (int i = 0; i < projectilNum / 2; i++)
         {
-            if (i != 0) playerPos2.y -= projectileSeparation;
-            else playerPos2.y -= projectileSeparation / 2;
+            if (i != 0) playerPos2.y -= projectileLateralSeparation;
+            else playerPos2.y -= projectileLateralSeparation / 2;
 
             GameObject bullet = Instantiate(bulletPrefab, playerPos2, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

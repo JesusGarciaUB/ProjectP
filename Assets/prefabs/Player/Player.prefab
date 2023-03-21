@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8552401612604844480}
   - component: {fileID: 8552401612604844493}
   - component: {fileID: 1450588221}
+  - component: {fileID: 5297040839126380387}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6c82444e665f85e49a1691f8b2a043f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   health: 0
   damage: 0
   speed: 1
+  invulnerabilityTime: 1
 --- !u!114 &8552401612604844493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +196,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7774456164170282666, guid: dd0ab253fdeeda7449cc62d45868531c, type: 3}
-  bulletForce: 2.5
-  canShoot: 0
+  bulletForce: 1
   shootCooldown: 0
-  numberOfProjectiles: 2
-  projectileSeparation: 0.06
+  numberOfFrontalProjectiles: 2
+  numberOfLateralProjectiles: 3
+  projectileSeparation: 0.08
+  projectileLateralSeparation: 0.15
+  topOffset: 0.2
+  leftOffset: 0.15
+  dir: 0
+--- !u!95 &5297040839126380387
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552401612604844487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33c62f271bcb1b64aa015d8d90b3dcf0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
