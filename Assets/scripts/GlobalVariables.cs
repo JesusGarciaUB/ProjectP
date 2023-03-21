@@ -1,16 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables Instance { get; private set; }
     public GameObject player;
-    public int score;
+    private int score;
     public Camera mainCamera;
     public Color ogColor;
     public int currentLevel;
     public bool canScroll;
+    public TextMesh tm;
+
+    public int Score
+    {
+        get { return score; }
+        set
+        {
+            score += value;
+        }
+    }
+
     private void Awake()
     {
         currentLevel = 0;
