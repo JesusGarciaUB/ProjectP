@@ -34,7 +34,10 @@ public class EnemyHit : Damageable
 
     private void Death()
     {
+        if (GetComponent<EnemyShoot>() != null) GlobalVariables.Instance.score += 2500;
+        else GlobalVariables.Instance.score += 1000;
         anim.SetTrigger("die");
+        print(GlobalVariables.Instance.score);
     }
 
     private void DestroyShip()
