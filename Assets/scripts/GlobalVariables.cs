@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GlobalVariables : MonoBehaviour
 {
@@ -11,11 +12,28 @@ public class GlobalVariables : MonoBehaviour
     private int score;
     public Camera mainCamera;
     public Color ogColor;
-    public int currentLevel;
+    private int currentLevel;
     public bool canScroll;
     //public TextMeshProUGUI tm;
     public SceneManagerScript sceneManager;
+    public int playerHealth;
 
+    public int CurrentLevel
+    {
+        get { return currentLevel; }
+        set
+        {
+            currentLevel = value;
+            SceneManager.LoadScene(currentLevel);
+            canScroll = true;
+            sceneManager.canSpawnGlobal = true;
+        }
+    }
+
+    public int SetLevel
+    {
+        set { currentLevel = value; }
+    }
     public int Score
     {
         get { return score; }
@@ -26,11 +44,14 @@ public class GlobalVariables : MonoBehaviour
         }
     }
 
+    public int ScoreReset
+    {
+        set { score = value; }
+    }
+
     private void Awake()
     {
         canScroll = true;
-        currentLevel = 0;
-        score = 0;
         if (Instance == null)
         {
             Instance = this;

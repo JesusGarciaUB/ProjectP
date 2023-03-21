@@ -14,10 +14,20 @@ public class SceneManagerScript : MonoBehaviour
     private bool canSpawn;
     public float speedOfSpawn;
     public bool canSpawnGlobal;
+    public int sceneNum;
     private void Start()
     {
+        GlobalVariables.Instance.SetLevel = sceneNum;
+        GlobalVariables.Instance.player = GameObject.FindGameObjectWithTag("Player");
+        GlobalVariables.Instance.mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        GlobalVariables.Instance.sceneManager = gameObject.GetComponent<SceneManagerScript>();
         canSpawnGlobal = true;
         canSpawn = true;
+        if (sceneNum == 1) { 
+            GlobalVariables.Instance.ScoreReset = 0;
+            GlobalVariables.Instance.playerHealth = 8;
+        }
+        GlobalVariables.Instance.player.GetComponent<Damageable>().HealthEqualizer = GlobalVariables.Instance.playerHealth;
     }
 
     private void FixedUpdate()

@@ -41,8 +41,15 @@ public class ScrollManager : MonoBehaviour
             if (canSpawn && loops == (numberOfLoops + 2))
             {
                 GlobalVariables.Instance.canScroll = false;
+                StartCoroutine(changeTime());
             }
         }
+    }
+
+    private IEnumerator changeTime()
+    {
+        yield return new WaitForSeconds(2);
+        GlobalVariables.Instance.CurrentLevel++;
     }
 
     private IEnumerator Spawn()
