@@ -16,6 +16,14 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    public int HealthEqualizer
+    {
+        set { 
+            health = value;
+            if (health < 6) GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetTrigger("low");
+        }
+    }
+
     public int Damage
     {
         get { return damage; }

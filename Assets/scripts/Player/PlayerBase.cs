@@ -13,7 +13,7 @@ public class PlayerBase : Damageable
     private SpriteRenderer spriteRenderer;
     private Color og;
     private Color oga;
-    private Animator anim;
+    public Animator anim;
     public bool canMove;
     public bool canHit;
     private void Awake()
