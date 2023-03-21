@@ -22,16 +22,31 @@ public class SceneManager : MonoBehaviour
     {
         if(canSpawn)
         {
-            switch(Random.Range(0, 4))
+            switch(Random.Range(0, 5))
             {
                 case 0:
                     SpawnFrag();
+                    break;
+                case 1:
+                    SpawnMine();
                     break;
                 default:
                     SpawnGol();
                     break;
             }
             StartCoroutine(StartCooldown());
+        }
+    }
+
+    private void SpawnMine()
+    {
+        int rand = Random.Range(0, 2);
+        int side = Random.Range(0, 2);
+        GameObject mine = Instantiate(enemies[2], rand == 0 ? centerSpawners[Random.Range(0, centerSpawners.Count)].position : side == 0 ? rightSpawner.position : leftSpawner.position, Quaternion.identity);
+        if (rand == 0) mine.GetComponent<EnemyBase>().SetOnePoint = despawners[Random.Range(0, despawners.Count)];
+        else
+        {
+            mine.GetComponent<EnemyBase>().SetRoute = side == 0 ? rightPath : leftPath;
         }
     }
 
