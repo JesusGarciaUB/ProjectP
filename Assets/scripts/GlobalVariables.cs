@@ -6,12 +6,14 @@ public class GlobalVariables : MonoBehaviour
 {
     public static GlobalVariables Instance { get; private set; }
     public GameObject player;
-    public GameObject playerCinematic;
     public int score;
     public Camera mainCamera;
     public Color ogColor;
+    public int currentLevel;
+    public bool canScroll;
     private void Awake()
     {
+        currentLevel = 0;
         score = 0;
         if (Instance == null)
         {
