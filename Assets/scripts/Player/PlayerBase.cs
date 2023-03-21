@@ -52,6 +52,7 @@ public class PlayerBase : Damageable
     }
     public override void OnHpLoss()
     {
+        GlobalVariables.Instance.mainCamera.GetComponent<screenShake>().timeShake = 0.15f;
         StartCoroutine(BlinckSprite());
         StartCoroutine(InvulnerabilityCooldown());
     }

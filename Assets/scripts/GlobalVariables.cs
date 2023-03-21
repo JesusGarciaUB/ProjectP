@@ -7,6 +7,7 @@ public class GlobalVariables : MonoBehaviour
     public static GlobalVariables Instance { get; private set; }
     public GameObject player;
     public int score;
+    public Camera mainCamera;
 
     private void Awake()
     {

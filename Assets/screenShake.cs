@@ -18,7 +18,7 @@ public class screenShake : MonoBehaviour
         if(timeShake > 0)
         {
             timeShake -= Time.deltaTime;
-            transform.position = initialPosition + Random.Range(-0.2f, 0.2f) * Vector3.right + Random.Range(-0.2f, 0.2f) * Vector3.up;
+            transform.position = initialPosition + Random.Range(-0.05f, 0.05f) * Vector3.right + Random.Range(-0.05f, 0.05f) * Vector3.up;
         }
         else
         {
