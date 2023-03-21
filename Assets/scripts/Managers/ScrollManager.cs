@@ -16,7 +16,7 @@ public class ScrollManager : MonoBehaviour
         canSpawn = true;
         loops = 0;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (GlobalVariables.Instance.canScroll)
         {
