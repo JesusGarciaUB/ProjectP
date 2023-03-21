@@ -7,7 +7,11 @@ public class MenuPrincipal : MonoBehaviour
 {
     public void LoadLevel()
     {
-        print("cosa");
         SceneManager.LoadScene(1);
+    }
+
+    public void AplicationQuite()
+    {
+
     }
 }
