@@ -153,6 +153,7 @@ MonoBehaviour:
   damage: 1
   speed: 1
   invulnerabilityTime: 1
+  canHit: 0
 --- !u!114 &8552401612604844493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +206,7 @@ MonoBehaviour:
   topOffset: 0.2
   leftOffset: 0.15
   dir: 0
+  knockbackOnShoot: 0.03
 --- !u!95 &5297040839126380387
 Animator:
   serializedVersion: 4

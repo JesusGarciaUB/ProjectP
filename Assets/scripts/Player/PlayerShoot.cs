@@ -18,10 +18,17 @@ public class PlayerShoot : MonoBehaviour
     public float leftOffset = 0.15f; //Set bullet position on lateral of the ship
     public Direction dir = Direction.UP;
     private bool CanShoot;
+    private Rigidbody2D playerRb;
+    public float knockbackOnShoot = 0.01f;
 
     private void Awake()
     {
         CanShoot = true;
+    }
+
+    private void Start()
+    {
+       playerRb = GetComponent<Rigidbody2D>();
     }
 
     private void LockShoot() {
@@ -126,6 +133,9 @@ public class PlayerShoot : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
         }
+        Vector3 cosa = transform.position;
+        cosa.y -= knockbackOnShoot;
+        transform.position = cosa;
     }
 
     private void ParShootingLeft(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
@@ -149,6 +159,10 @@ public class PlayerShoot : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
         }
+
+        Vector3 cosa = transform.position;
+        cosa.x += knockbackOnShoot;
+        transform.position = cosa;
     }
 
     private void ParShootingRight(Vector3 playerPos1, Vector3 playerPos2, int projectilNum)
@@ -172,6 +186,10 @@ public class PlayerShoot : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
         }
+
+        Vector3 cosa = transform.position;
+        cosa.x -= knockbackOnShoot;
+        transform.position = cosa;
     }
 
     /*private IEnumerator ShootingCooldown()
