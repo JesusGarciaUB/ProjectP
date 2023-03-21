@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8552401612604844487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0625599, y: -0.5257, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -196,11 +196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7425068067070483246, guid: 1bb51f99cc55a5b498bee3f12051f041, type: 3}
-  bulletForce: 1
+  bulletForce: 2.5
   shootCooldown: 0
   numberOfFrontalProjectiles: 2
   numberOfLateralProjectiles: 3
-  projectileSeparation: 0.08
+  projectileSeparation: 0.06
   projectileLateralSeparation: 0.15
   topOffset: 0.2
   leftOffset: 0.15
