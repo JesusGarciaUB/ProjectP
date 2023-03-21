@@ -13,7 +13,8 @@ public class GlobalVariables : MonoBehaviour
     public Color ogColor;
     public int currentLevel;
     public bool canScroll;
-    public TextMeshProUGUI tm;
+    //public TextMeshProUGUI tm;
+    public SceneManagerScript sceneManager;
 
     public int Score
     {
@@ -45,6 +46,6 @@ public class GlobalVariables : MonoBehaviour
 
     public void ChangeScore()
     {
-        tm.text = score.ToString();
+        //tm.text = score.ToString();
     }
 }

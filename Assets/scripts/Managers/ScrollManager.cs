@@ -37,6 +37,7 @@ public class ScrollManager : MonoBehaviour
                 Instantiate(maps[Random.Range(0, maps.Count)], spawner.position, Quaternion.identity);
                 StartCoroutine(Spawn());
             }
+            if (loops == numberOfLoops + 2) GlobalVariables.Instance.sceneManager.canSpawnGlobal = false;
             if (canSpawn && loops == (numberOfLoops + 2))
             {
                 GlobalVariables.Instance.canScroll = false;

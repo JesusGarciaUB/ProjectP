@@ -13,28 +13,33 @@ public class SceneManagerScript : MonoBehaviour
     public List<GameObject> enemies;
     private bool canSpawn;
     public float speedOfSpawn;
+    public bool canSpawnGlobal;
     private void Start()
     {
+        canSpawnGlobal = true;
         canSpawn = true;
     }
 
     private void FixedUpdate()
     {
-        if(canSpawn && GlobalVariables.Instance.canScroll)
+        if (canSpawnGlobal)
         {
-            switch(Random.Range(0, 5))
+            if (canSpawn && GlobalVariables.Instance.canScroll)
             {
-                case 0:
-                    SpawnFrag();
-                    break;
-                case 1:
-                    SpawnMine();
-                    break;
-                default:
-                    SpawnGol();
-                    break;
+                switch (Random.Range(0, 5))
+                {
+                    case 0:
+                        SpawnFrag();
+                        break;
+                    case 1:
+                        SpawnMine();
+                        break;
+                    default:
+                        SpawnGol();
+                        break;
+                }
+                StartCoroutine(StartCooldown());
             }
-            StartCoroutine(StartCooldown());
         }
 
     }
