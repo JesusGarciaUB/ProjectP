@@ -7,6 +7,7 @@ public class MenuPrincipal : MonoBehaviour
 {
     public void LoadLevel()
     {
-        //UnityEngine.SceneManager.LoadScene("FrancescScene");
+        print("cosa");
+        SceneManager.LoadScene(1);
     }
 }
