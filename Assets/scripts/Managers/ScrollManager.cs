@@ -52,8 +52,16 @@ public class ScrollManager : MonoBehaviour
     private IEnumerator changeTime()
     {
         sm.middleText.text = "LEVEL COMPLETE";
-        yield return new WaitForSeconds(5);
-        GlobalVariables.Instance.CurrentLevel++;
+        yield return new WaitForSeconds(2);
+        if (sm.sceneNum == 2) {
+            sm.middleText.text = "FINAL SCORE: " + GlobalVariables.Instance.Score;
+            GlobalVariables.Instance.DoCredits();
+        }
+        else
+        {
+            yield return new WaitForSeconds(3);
+            GlobalVariables.Instance.CurrentLevel++;
+        }
     }
 
     private IEnumerator Spawn()
