@@ -199,3 +199,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 4
   damage: 1
+  deathSound: {fileID: 4981046979023617729, guid: 6c4ab1425890ead4ca357f953dadb180, type: 3}

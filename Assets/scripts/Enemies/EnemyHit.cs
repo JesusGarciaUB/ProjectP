@@ -9,6 +9,8 @@ public class EnemyHit : Damageable
     private Color og;
     private Color oga;
     private Animator anim;
+    public GameObject deathSound;
+    private GameObject cosa;
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class EnemyHit : Damageable
 
     private void Death()
     {
+        cosa = Instantiate(deathSound);
         if (GetComponent<EnemyShoot>() != null) GlobalVariables.Instance.score += 2500;
         else GlobalVariables.Instance.score += 1000;
         anim.SetTrigger("die");
@@ -42,6 +45,7 @@ public class EnemyHit : Damageable
 
     private void DestroyShip()
     {
+        Destroy(cosa, 5f);
         Destroy(gameObject);
     }
     public override void OnHpLoss()
