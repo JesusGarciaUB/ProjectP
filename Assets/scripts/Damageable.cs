@@ -20,7 +20,7 @@ public class Damageable : MonoBehaviour
     {
         set { 
             health = value;
-            if (health < 6) GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetTrigger("low");
+            if (health < 5) GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetTrigger("low");
         }
     }
 

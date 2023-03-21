@@ -20,10 +20,13 @@ public class EnemyShoot :  MonoBehaviour
     private void FixedUpdate()
     {
         if (GetComponent<EnemyBase>().GetState != 0) entered = true;
-        if (CanShoot && entered)
+        if (GlobalVariables.Instance.canShoot)
         {
-            Shoot();
-            StartCoroutine(StartCooldown());
+            if (CanShoot && entered)
+            {
+                Shoot();
+                StartCoroutine(StartCooldown());
+            }
         }
     }
 

@@ -17,10 +17,13 @@ public class EnemyShootFront : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CanShoot)
+        if (GlobalVariables.Instance.canShoot)
         {
-            Shoot();
-            StartCoroutine(StartCooldown());
+            if (CanShoot)
+            {
+                Shoot();
+                StartCoroutine(StartCooldown());
+            }
         }
     }
     private void Shoot()

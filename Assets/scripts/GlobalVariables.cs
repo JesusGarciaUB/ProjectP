@@ -14,7 +14,8 @@ public class GlobalVariables : MonoBehaviour
     public Color ogColor;
     private int currentLevel;
     public bool canScroll;
-    //public TextMeshProUGUI tm;
+    public bool canShoot;
+    public TextMeshProUGUI tm;
     public SceneManagerScript sceneManager;
     public int playerHealth;
 
@@ -46,11 +47,12 @@ public class GlobalVariables : MonoBehaviour
 
     public int ScoreReset
     {
-        set { score = value; }
+        set { score = value; ChangeScore(); }
     }
 
     private void Awake()
     {
+        canShoot = true;
         canScroll = true;
         if (Instance == null)
         {
@@ -59,7 +61,6 @@ public class GlobalVariables : MonoBehaviour
         }
         else Destroy(gameObject);
     }
-
     public void ResetScore()
     {
         score = 0;
@@ -67,6 +68,17 @@ public class GlobalVariables : MonoBehaviour
 
     public void ChangeScore()
     {
-        //tm.text = score.ToString();
+        tm.text = score.ToString();
+    }
+
+    public void DoCredits()
+    {
+        StartCoroutine(Credits());
+    }
+    private IEnumerator Credits()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(3);
+        Destroy(gameObject);
     }
 }

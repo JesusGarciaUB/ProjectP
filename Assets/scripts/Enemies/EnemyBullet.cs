@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
                 collision.GetComponent<Damageable>().Health = GetComponent<Bullet>().damage;
                 GlobalVariables.Instance.playerHealth = collision.GetComponent<Damageable>().Health;
                 if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
-                if (collision.GetComponent<Damageable>().Health < 6) collision.GetComponent<PlayerBase>().Low();
+                if (collision.GetComponent<Damageable>().Health < 5) collision.GetComponent<PlayerBase>().Low();
                 Destroy(gameObject);
             }
         }

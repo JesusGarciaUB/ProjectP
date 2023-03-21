@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerBase : Damageable
 {
@@ -45,9 +46,14 @@ public class PlayerBase : Damageable
     public void Death()
     {
         anim.SetTrigger("die");
+        GlobalVariables.Instance.canShoot = false;
+        GlobalVariables.Instance.canScroll = false;
+        GlobalVariables.Instance.sceneManager.canSpawnGlobal = false;
+        GlobalVariables.Instance.sceneManager.middleText.text = "FINAL SCORE: " + GlobalVariables.Instance.Score.ToString();
     }
     private void DestroyShip()
     {
+        GlobalVariables.Instance.DoCredits();
         Destroy(gameObject);
     }
 

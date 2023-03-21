@@ -11,10 +11,12 @@ public class ScrollManager : MonoBehaviour
     public GameObject portmap;
     private int loops;
     public int numberOfLoops;
+    public SceneManagerScript sm;
     private void Start()
     {
         canSpawn = true;
         loops = 0;
+        sm.middleText.text = "";
     }
     private void Update()
     {
@@ -41,6 +43,7 @@ public class ScrollManager : MonoBehaviour
             if (canSpawn && loops == (numberOfLoops + 2))
             {
                 GlobalVariables.Instance.canScroll = false;
+                GlobalVariables.Instance.canShoot = false;
                 StartCoroutine(changeTime());
             }
         }
@@ -48,7 +51,8 @@ public class ScrollManager : MonoBehaviour
 
     private IEnumerator changeTime()
     {
-        yield return new WaitForSeconds(2);
+        sm.middleText.text = "LEVEL COMPLETE";
+        yield return new WaitForSeconds(5);
         GlobalVariables.Instance.CurrentLevel++;
     }
 

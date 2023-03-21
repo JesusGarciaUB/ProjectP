@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SceneManagerScript : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SceneManagerScript : MonoBehaviour
     public float speedOfSpawn;
     public bool canSpawnGlobal;
     public int sceneNum;
+    public TextMeshProUGUI scoreboard;
+    public TextMeshProUGUI middleText;
     private void Start()
     {
         GlobalVariables.Instance.SetLevel = sceneNum;
@@ -23,11 +26,14 @@ public class SceneManagerScript : MonoBehaviour
         GlobalVariables.Instance.sceneManager = gameObject.GetComponent<SceneManagerScript>();
         canSpawnGlobal = true;
         canSpawn = true;
+        GlobalVariables.Instance.canShoot = true;
         if (sceneNum == 1) { 
             GlobalVariables.Instance.ScoreReset = 0;
             GlobalVariables.Instance.playerHealth = 8;
         }
         GlobalVariables.Instance.player.GetComponent<Damageable>().HealthEqualizer = GlobalVariables.Instance.playerHealth;
+        GlobalVariables.Instance.tm = scoreboard;
+        if (sceneNum > 1) GlobalVariables.Instance.ScoreReset = GlobalVariables.Instance.Score;
     }
 
     private void FixedUpdate()
