@@ -7,8 +7,12 @@ public class ScrollManager : MonoBehaviour
     public Transform spawner;
     public List<GameObject> maps;
     public float timeBetween;
-    private bool canSpawn = true;
+    private bool canSpawn;
 
+    private void Start()
+    {
+        canSpawn = true;
+    }
     private void FixedUpdate()
     {
         if (canSpawn) {
