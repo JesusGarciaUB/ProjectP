@@ -43,6 +43,7 @@ public class PlayerShoot : MonoBehaviour
         Vector3 playerPos1 = transform.position;
         playerPos1.y += topOffset;
         Vector3 playerPos2 = playerPos1;
+        dir = Direction.UP;
         Shoot(playerPos1, playerPos2, numberOfFrontalProjectiles);
     }
 
@@ -142,7 +143,7 @@ public class PlayerShoot : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, playerPos1, Quaternion.identity);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce((transform.right * -1) * bulletForce, ForceMode2D.Impulse);
+            rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
         }
 
         for (int i = 0; i < projectilNum / 2; i++)
