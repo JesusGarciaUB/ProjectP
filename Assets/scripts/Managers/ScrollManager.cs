@@ -32,7 +32,15 @@ public class ScrollManager : MonoBehaviour
                 Instantiate(portmap, spawner.position, Quaternion.identity);
                 StartCoroutine(Spawn());
             }
-            if (canSpawn && loops > numberOfLoops) { }
+            if (canSpawn && loops < (numberOfLoops + 2)) {
+                loops++;
+                Instantiate(maps[Random.Range(0, maps.Count)], spawner.position, Quaternion.identity);
+                StartCoroutine(Spawn());
+            }
+            if (canSpawn && loops == (numberOfLoops + 2))
+            {
+                GlobalVariables.Instance.canScroll = false;
+            }
         }
     }
 

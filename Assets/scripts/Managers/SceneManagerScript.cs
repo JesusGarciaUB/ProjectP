@@ -20,7 +20,7 @@ public class SceneManagerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(canSpawn)
+        if(canSpawn && GlobalVariables.Instance.canScroll)
         {
             switch(Random.Range(0, 5))
             {

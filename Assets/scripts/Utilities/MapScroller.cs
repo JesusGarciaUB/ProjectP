@@ -18,5 +18,6 @@ public class MapScroller : MonoBehaviour
     private void FixedUpdate()
     {
         if (transform.position.y < -2.1) Destroy(gameObject);
+        if (!GlobalVariables.Instance.canScroll) rb.velocity = Vector3.zero;
     }
 }
