@@ -17,6 +17,14 @@ public class ScrollManager : MonoBehaviour
         canSpawn = true;
         loops = 0;
         sm.middleText.text = "";
+        StartCoroutine(Stage());
+    }
+
+    private IEnumerator Stage()
+    {
+        sm.middleText.text = "stage " + sm.sceneNum.ToString();
+        yield return new WaitForSeconds(1.5f);
+        sm.middleText.text = "";
     }
     private void Update()
     {
@@ -44,6 +52,7 @@ public class ScrollManager : MonoBehaviour
             {
                 GlobalVariables.Instance.canScroll = false;
                 GlobalVariables.Instance.canShoot = false;
+                GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetBool("isParking", true);
                 StartCoroutine(changeTime());
             }
         }
