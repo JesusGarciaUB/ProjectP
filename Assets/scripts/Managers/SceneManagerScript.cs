@@ -34,6 +34,7 @@ public class SceneManagerScript : MonoBehaviour
         GlobalVariables.Instance.player.GetComponent<Damageable>().HealthEqualizer = GlobalVariables.Instance.playerHealth;
         GlobalVariables.Instance.tm = scoreboard;
         if (sceneNum > 1) GlobalVariables.Instance.ScoreReset = GlobalVariables.Instance.Score;
+        GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetBool("isParking", false);
     }
 
     private void FixedUpdate()
