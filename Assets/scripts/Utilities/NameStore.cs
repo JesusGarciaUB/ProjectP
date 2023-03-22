@@ -6,7 +6,7 @@ public class NameStore : MonoBehaviour
 {
     public static NameStore Instance { get; private set; }
     private string playerName;
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
