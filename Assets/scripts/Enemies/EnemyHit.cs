@@ -37,10 +37,10 @@ public class EnemyHit : Damageable
     private void Death()
     {
         cosa = Instantiate(deathSound);
-        if (GetComponent<EnemyShoot>() != null) GlobalVariables.Instance.score += 2500;
-        else GlobalVariables.Instance.score += 1000;
+        if (GetComponent<EnemyShoot>() != null) GlobalVariables.Instance.Score = 2500;
+        else GlobalVariables.Instance.Score = 1000;
         anim.SetTrigger("die");
-        print(GlobalVariables.Instance.score);
+        print(GlobalVariables.Instance.Score);
     }
 
     private void DestroyShip()
