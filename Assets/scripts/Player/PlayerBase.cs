@@ -66,6 +66,7 @@ public class PlayerBase : Damageable
         GlobalVariables.Instance.mainCamera.GetComponent<screenShake>().timeShake = 0.15f;
         StartCoroutine(BlinckSprite());
         StartCoroutine(InvulnerabilityCooldown());
+        GlobalVariables.Instance.sceneManager.textHealth.text = "x" + (Health - 1).ToString();
     }
 
     private IEnumerator InvulnerabilityCooldown()

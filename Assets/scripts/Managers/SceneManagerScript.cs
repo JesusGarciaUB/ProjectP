@@ -18,6 +18,7 @@ public class SceneManagerScript : MonoBehaviour
     public int sceneNum;
     public TextMeshProUGUI scoreboard;
     public TextMeshProUGUI middleText;
+    public TextMeshProUGUI textHealth;
     private void Start()
     {
         GlobalVariables.Instance.SetLevel = sceneNum;
@@ -35,6 +36,7 @@ public class SceneManagerScript : MonoBehaviour
         GlobalVariables.Instance.tm = scoreboard;
         if (sceneNum > 1) GlobalVariables.Instance.ScoreReset = GlobalVariables.Instance.Score;
         GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetBool("isParking", false);
+        textHealth.text = "x" + GlobalVariables.Instance.playerHealth.ToString();
     }
 
     private void FixedUpdate()
