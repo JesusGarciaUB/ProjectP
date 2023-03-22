@@ -10,6 +10,7 @@ public class Cloud : MonoBehaviour
 
     private void Start()
     {
+        transform.rotation = Random.rotation;
         Destroy(gameObject, timeOnScreen);
     }
     void Update()
