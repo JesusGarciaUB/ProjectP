@@ -69,6 +69,7 @@ public class ScrollManager : MonoBehaviour
         sm.middleText.text = "LEVEL COMPLETE";
         yield return new WaitForSeconds(2);
         if (sm.sceneNum == 2) {
+            SavePlayer();
             sm.middleText.text = "FINAL SCORE: " + GlobalVariables.Instance.Score;
             GlobalVariables.Instance.DoCredits();
         }
@@ -84,5 +85,24 @@ public class ScrollManager : MonoBehaviour
         canSpawn = false;
         yield return new WaitForSeconds(timeBetween);
         canSpawn = true;
+    }
+
+    [System.Serializable]
+    public class SavePlayerData
+    {
+        public string playerName;
+        public int playerScore;
+    }
+
+    private void SavePlayer()
+    {
+        print("Saved player");
+        SavePlayerData savedPlayer = new SavePlayerData() {
+            playerName = NameStore.Instance.PlayerName,
+            playerScore = GlobalVariables.Instance.Score
+        };
+
+        PlayerPrefs.SetString("Scores", JsonUtility.ToJson(savedPlayer));
+        PlayerPrefs.Save();
     }
 }
