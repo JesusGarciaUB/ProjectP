@@ -10,7 +10,7 @@ public class Cloud : MonoBehaviour
 
     private void Start()
     {
-        transform.rotation = Random.rotation;
+        transform.Rotate(0.0f, 0.0f, Random.Range(0.0f, 360.0f));
         Destroy(gameObject, timeOnScreen);
     }
     void Update()
