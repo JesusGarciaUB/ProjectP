@@ -123,63 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &574072294
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8759976248575455876, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_Name
-      value: Bckground_music
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.13863826
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.24576828
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.856154
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759976248575455882, guid: dddbf555d8be134428955ecc422a2177, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dddbf555d8be134428955ecc422a2177, type: 3}
 --- !u!1 &1193817456
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +609,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1495648068
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2358634655251864224, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_Name
+      value: 403913-IRISH_Upbeat_Jig_Theme_-Free_Games_Feature_Loop_003889_
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625365505582911923, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625365505582911923, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3172472361795623291, guid: 058e2406b32a17141abf13bafc2f54ad, type: 2}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723590206568901881, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cec2fd070c192441a473b74fae0ea68, type: 3}
 --- !u!1 &1504323304
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +759,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.1
+  m_fontSize: 27.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
