@@ -45,6 +45,7 @@ public class PlayerBase : Damageable
     }
     public void Death()
     {
+        SavePlayer();
         anim.SetTrigger("die");
         GlobalVariables.Instance.canShoot = false;
         GlobalVariables.Instance.canScroll = false;
@@ -71,7 +72,6 @@ public class PlayerBase : Damageable
 
     private IEnumerator InvulnerabilityCooldown()
     {
-        print("c merman");
         canHit = false;
 
         yield return new WaitForSeconds(invulnerabilityTime);
@@ -87,5 +87,25 @@ public class PlayerBase : Damageable
             spriteRenderer.color = og;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    [System.Serializable]
+    public class SavePlayerData
+    {
+        public string playerName;
+        public int playerScore;
+    }
+
+    public void SavePlayer()
+    {
+        print("Saved player");
+        SavePlayerData savedPlayer = new SavePlayerData()
+        {
+            playerName = NameStore.Instance.PlayerName,
+            playerScore = GlobalVariables.Instance.Score
+        };
+
+        PlayerPrefs.SetString("Scores", JsonUtility.ToJson(savedPlayer));
+        PlayerPrefs.Save();
     }
 }

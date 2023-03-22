@@ -94,9 +94,8 @@ public class ScrollManager : MonoBehaviour
         public int playerScore;
     }
 
-    private void SavePlayer()
+    public void SavePlayer()
     {
-        print("Saved player");
         SavePlayerData savedPlayer = new SavePlayerData() {
             playerName = NameStore.Instance.PlayerName,
             playerScore = GlobalVariables.Instance.Score
