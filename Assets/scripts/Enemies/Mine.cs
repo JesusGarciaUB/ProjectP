@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
-
+    private Animator anim;
     public int damage;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -14,8 +19,13 @@ public class Mine : MonoBehaviour
             {
                 collision.GetComponent<Damageable>().Health = damage;
                 if (collision.GetComponent<Damageable>().Health <= 0) collision.GetComponent<PlayerBase>().Death();
-                Destroy(gameObject);
+                anim.SetTrigger("explode");
             }
         }
+    }
+
+    private void DestroyMine()
+    {
+        Destroy(gameObject);
     }
 }

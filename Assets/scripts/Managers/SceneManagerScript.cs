@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class SceneManager : MonoBehaviour
+public class SceneManagerScript : MonoBehaviour
 {
     public List<Transform> leftPath;
     public List<Transform> rightPath;
@@ -13,28 +14,49 @@ public class SceneManager : MonoBehaviour
     public List<GameObject> enemies;
     private bool canSpawn;
     public float speedOfSpawn;
+    public bool canSpawnGlobal;
+    public int sceneNum;
+    public TextMeshProUGUI scoreboard;
+    public TextMeshProUGUI middleText;
     private void Start()
     {
+        GlobalVariables.Instance.SetLevel = sceneNum;
+        GlobalVariables.Instance.player = GameObject.FindGameObjectWithTag("Player");
+        GlobalVariables.Instance.mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        GlobalVariables.Instance.sceneManager = gameObject.GetComponent<SceneManagerScript>();
+        canSpawnGlobal = true;
         canSpawn = true;
+        GlobalVariables.Instance.canShoot = true;
+        if (sceneNum == 1) { 
+            GlobalVariables.Instance.ScoreReset = 0;
+            GlobalVariables.Instance.playerHealth = 8;
+        }
+        GlobalVariables.Instance.player.GetComponent<Damageable>().HealthEqualizer = GlobalVariables.Instance.playerHealth;
+        GlobalVariables.Instance.tm = scoreboard;
+        if (sceneNum > 1) GlobalVariables.Instance.ScoreReset = GlobalVariables.Instance.Score;
+        GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetBool("isParking", false);
     }
 
     private void FixedUpdate()
     {
-        if(canSpawn)
+        if (canSpawnGlobal)
         {
-            switch(Random.Range(0, 5))
+            if (canSpawn && GlobalVariables.Instance.canScroll)
             {
-                case 0:
-                    SpawnFrag();
-                    break;
-                case 1:
-                    SpawnMine();
-                    break;
-                default:
-                    SpawnGol();
-                    break;
+                switch (Random.Range(0, 5))
+                {
+                    case 0:
+                        SpawnFrag();
+                        break;
+                    case 1:
+                        SpawnMine();
+                        break;
+                    default:
+                        SpawnGol();
+                        break;
+                }
+                StartCoroutine(StartCooldown());
             }
-            StartCoroutine(StartCooldown());
         }
     }
 

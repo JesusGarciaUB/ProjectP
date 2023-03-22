@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerBase : Damageable
 {
@@ -13,8 +14,8 @@ public class PlayerBase : Damageable
     private SpriteRenderer spriteRenderer;
     private Color og;
     private Color oga;
-    private Animator anim;
-    private bool canMove;
+    public Animator anim;
+    public bool canMove;
     public bool canHit;
     private void Awake()
     {
@@ -45,10 +46,20 @@ public class PlayerBase : Damageable
     public void Death()
     {
         anim.SetTrigger("die");
+        GlobalVariables.Instance.canShoot = false;
+        GlobalVariables.Instance.canScroll = false;
+        GlobalVariables.Instance.sceneManager.canSpawnGlobal = false;
+        GlobalVariables.Instance.sceneManager.middleText.text = "FINAL SCORE: " + GlobalVariables.Instance.Score.ToString();
     }
     private void DestroyShip()
     {
+        GlobalVariables.Instance.DoCredits();
         Destroy(gameObject);
+    }
+
+    public void Low()
+    {
+        anim.SetTrigger("low");
     }
     public override void OnHpLoss()
     {
