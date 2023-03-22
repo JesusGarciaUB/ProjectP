@@ -1495,6 +1495,8 @@ MonoBehaviour:
   portmap: {fileID: 4455537990405717294, guid: 602259337e29a044eb77aa0d5273fdc8, type: 3}
   numberOfLoops: 10
   sm: {fileID: 8523863153746879753}
+  mainSound: {fileID: 1937917153}
+  winSound: {fileID: 7592495250362863030, guid: ee3f2beb327f52747a06a8bea7d7b962, type: 3}
 --- !u!4 &701394743
 Transform:
   m_ObjectHideFlags: 0
@@ -3019,6 +3021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ec9389d6b952fd4e944e1becbc7db50, type: 3}
+--- !u!1 &1937917153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759976248575455876, guid: dddbf555d8be134428955ecc422a2177, type: 3}
+  m_PrefabInstance: {fileID: 339072925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2004112668
 GameObject:
   m_ObjectHideFlags: 0

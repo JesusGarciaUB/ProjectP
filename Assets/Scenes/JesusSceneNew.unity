@@ -342,7 +342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.75
+  m_fontSize: 32.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1266,6 +1266,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3985608030124851939, guid: 3e34a5f981e280348977d89f90252ad4, type: 3}
   m_PrefabInstance: {fileID: 546677866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &583600212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8759976248575455876, guid: dddbf555d8be134428955ecc422a2177, type: 3}
+  m_PrefabInstance: {fileID: 339072925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &701394741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1307,8 @@ MonoBehaviour:
   portmap: {fileID: 4455537990405717294, guid: 602259337e29a044eb77aa0d5273fdc8, type: 3}
   numberOfLoops: 5
   sm: {fileID: 449784278}
+  mainSound: {fileID: 583600212}
+  winSound: {fileID: 7592495250362863030, guid: ee3f2beb327f52747a06a8bea7d7b962, type: 3}
 --- !u!4 &701394743
 Transform:
   m_ObjectHideFlags: 0

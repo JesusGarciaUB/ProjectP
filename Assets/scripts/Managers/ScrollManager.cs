@@ -12,6 +12,8 @@ public class ScrollManager : MonoBehaviour
     private int loops;
     public int numberOfLoops;
     public SceneManagerScript sm;
+    public GameObject mainSound;
+    public GameObject winSound;
     private void Start()
     {
         canSpawn = true;
@@ -50,6 +52,10 @@ public class ScrollManager : MonoBehaviour
             if (loops == numberOfLoops + 2) GlobalVariables.Instance.sceneManager.canSpawnGlobal = false;
             if (canSpawn && loops == (numberOfLoops + 2))
             {
+                Destroy(mainSound);
+                //mainSound.SetActive(false);
+                GameObject winMusic = Instantiate(winSound);
+                Destroy(winMusic, 4f);
                 GlobalVariables.Instance.canScroll = false;
                 GlobalVariables.Instance.canShoot = false;
                 GlobalVariables.Instance.player.GetComponent<PlayerBase>().anim.SetBool("isParking", true);
