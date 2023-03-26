@@ -78,7 +78,7 @@ public class GlobalVariables : MonoBehaviour
     private IEnumerator Credits()
     {
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
         Destroy(gameObject);
     }
 }
